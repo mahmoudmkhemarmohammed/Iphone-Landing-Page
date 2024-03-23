@@ -261,7 +261,7 @@ header .container nav ul.active {
         margin-bottom: 150px;
     }
     .content .container .img img {
-        width: 150px;
+        width: 125px;
     };
 }
 @media (max-width : 991px){

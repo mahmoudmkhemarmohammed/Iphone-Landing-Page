@@ -261,7 +261,7 @@ header .container nav ul.active {
         margin-bottom: 150px;
     }
     .content .container .img img {
-        width: 125px;
+        width: 120px;
     };
 }
 @media (max-width : 991px){
@@ -288,7 +288,7 @@ header .container nav ul.active {
         display: flex;
     }
     .content .container .phones img {
-        width: 60px;
+        width: 50px;
     }
 }
 /* Start Media */

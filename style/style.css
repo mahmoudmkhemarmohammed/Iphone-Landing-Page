@@ -241,7 +241,7 @@ header .container nav ul.active {
         align-items: center;
     }
     .content .container .text {
-        margin-top: 150px;
+        margin-top: 140px;
         width: 100%;
         text-align: center;
     }
@@ -255,10 +255,10 @@ header .container nav ul.active {
         font-size: 35px;
     }
     .content .container .text button {
-        font-size: 18px;
+        font-size: 15px;
     }
     .content .container .img {
-        margin-bottom: 150px;
+        margin-bottom: 180px;
     }
     .content .container .img img {
         width: 120px;

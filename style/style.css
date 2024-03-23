@@ -1,0 +1,310 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+:root {
+    --Main-Back : #012c33;
+    --Second-Back : #023c45;
+    --Main-Color : #FFF;
+}
+body.light {
+    --Main-Back : #b9d1d7;
+    --Second-Back : #FFF;
+    --Main-Color : black;
+}
+body {
+    background-color: var(--Main-Back);
+}
+.container {
+    padding: 0 15px;
+    margin: 0 auto;
+}
+header {
+    background-color: var(--Second-Back);
+    width: 100%;
+    height: 72px;
+    position: fixed;
+    padding: 10px;
+    z-index: 100000;
+}
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .container .logo i{
+    font-size: 45px;
+    color: var(--Main-Color);
+}
+header .container nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+header .container nav ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+header .container nav ul li {
+    text-align: center;
+    margin-left: 10px;
+    list-style: none;
+    font-size: 25px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    color: var(--Main-Color);
+}
+header .container nav ul li.close {
+    display: none;
+}
+header .container nav ul li::before {
+    position: absolute;
+    content: '';
+    left: calc(-100% - 4px);
+    top: 0;
+    width: 100%;
+    border: 2px solid #41d6ff;
+    transition: .3s;
+}
+header .container nav ul li:hover::before{
+    left: 0;
+}
+header .container nav .berger-icon , header .container nav .theme{
+    width: 50px;
+    height: 50px;
+    padding: 10px;
+    display: none;
+}
+header .container nav .berger-close {
+    display: none;
+}
+header .container nav .berger-icon i {
+    font-size: 30px;
+    text-align: center;
+    color: var(--Main-Color);
+}
+header .container nav .theme {
+    display: block;
+}
+header .container nav .theme i{
+    font-size: 30px;
+    color: #41d6ff;
+    cursor: pointer;
+}
+header .container nav .theme i.fa-sun {
+    color: gold;
+}
+@media (max-width : 767px){
+    header .container nav {
+        gap: 5px;
+    }
+    header .container nav .berger-icon {
+        display: block;
+    }
+    header .container nav ul {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--Main-Back);
+        flex-direction: column;
+        animation: open .3s linear;
+        padding: 20px;
+        gap: 10px;
+    }
+    @keyframes open {
+        0%{
+            left: -100%;
+        }
+        100% {
+            left: 0;
+        }
+    }
+    header .container nav ul li{
+        margin: 0;
+        background-color: var(--Second-Back);
+        padding: 20px;
+        width: 100%;
+        border-radius: 5px;
+    }
+    header .container nav ul li::before {
+        display: none;
+    }
+    header .container nav .berger-close {
+        position: absolute;
+        z-index: 1000;
+        left: 20px;
+        width: 30px;
+        height: 30px;
+        font-size: 30px;
+        color: red;
+        animation: close .3s linear;
+        transition: .3s;
+    }
+    @keyframes close {
+        0% , 100% {
+            translate: 0;
+        }
+        50% {
+            translate: 0 20px;
+        }
+    }
+}
+header .container nav .berger-close.active {
+    display: block;
+}
+header .container nav ul.active {
+    display: flex;
+}
+.content .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+.content .container .text {
+    width: 40%;
+    max-width: 100%;
+}
+.content .container .text h2 {
+    font-size: 40px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color:var(--Main-Color);
+    margin-bottom: 10px;
+}
+.content .container .text h2 span.typer {
+    font-size: 55px;
+    color: #41d6ff;
+    animation: typer .3s linear infinite;
+}
+@keyframes typer {
+    0%,100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+.content .container .text p {
+    font-size: 18px;
+    color: var(--Main-Color);
+    line-height: 1.7;
+}
+.content .container .text button {
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 20px;
+    border: none;
+    outline: none;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: var(--Main-Color);
+    position: relative;
+    background-color: transparent;
+    border: 2px solid #00a5e2;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+.content .container .text button::before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: -100%;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: -1;
+    transition: .6s;
+}
+.content .container .text button:hover::before {
+    box-shadow: 0 0 0 1000px #41d6ff inset;
+    left: 0;
+}
+.content .container .img img {
+    width: 200px;
+}
+@media (max-width:767px) {
+    .content .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .content .container .text {
+        margin-top: 150px;
+        width: 100%;
+        text-align: center;
+    }
+    .content .container .text h2 {
+        font-size: 20px;
+    }
+    .content .container .text p {
+        font-size: 15px;
+    }
+    .content .container .text h2 span.typer {
+        font-size: 35px;
+    }
+    .content .container .text button {
+        font-size: 18px;
+    }
+    .content .container .img {
+        margin-bottom: 150px;
+    }
+    .content .container .img img {
+        width: 150px;
+    };
+}
+@media (max-width : 991px){
+    .content .container .text{
+        width: 60%;
+    }
+}
+.content .container .phones {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    translate: -50%;
+}
+.content .container .phones img {
+    width: 70px;
+    cursor: pointer;
+    transition: .3s;
+}
+.content .container .phones img:hover {
+    translate: 0 -10px;
+}
+@media (max-width:767px){
+    .content .container .phones {
+        display: flex;
+    }
+    .content .container .phones img {
+        width: 60px;
+    }
+}
+/* Start Media */
+@media (min-width:768px) {
+    .container {
+        width:750px;
+    }
+}
+@media (min-width:992px) {
+    .container {
+        width:970px;
+    }
+}
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Media */
